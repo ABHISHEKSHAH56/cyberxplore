@@ -19,3 +19,19 @@ export const  getdomain =(domain)=>async (dispatch)=>{
                 
         }
 }
+
+export const  deletedomain =()=>async (dispatch)=>{
+        
+        try {
+                
+     
+                dispatch({
+                        type:'DELETE_ALL',
+                        
+                })
+                
+        } catch (error) {
+                console.log(error.message)
+                
+        }
+}

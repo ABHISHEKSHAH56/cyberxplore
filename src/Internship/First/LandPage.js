@@ -5,16 +5,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import './CSS/land.css';
 import {getdomain} from '../Redux/action'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import UseLoder from '../Loader/UseLoder';
 import { useHistory } from "react-router-dom";
 //do something...
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 
 
 export default function LandPage() {
         let history = useHistory();
+        const location =useLocation()
+        console.log(location)
 
         const [loader ,showloder,hideloder]=UseLoder();
       
@@ -43,12 +47,15 @@ export default function LandPage() {
                         history.push("/sec");
                         
                        
+                        
+                       
                             
 
                 }
                
                 
         }, [post])
+        
         
         
         return (

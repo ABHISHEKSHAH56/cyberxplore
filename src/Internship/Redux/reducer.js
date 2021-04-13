@@ -13,6 +13,12 @@ export default (state=inital,action)=>{
                                 college:[...state.college,action.payload]
 
                         }
+                case 'DELETE_ALL':                        
+                        return {
+                                ...state,
+                                college:[]
+
+                        }        
                         
                        
                                                          

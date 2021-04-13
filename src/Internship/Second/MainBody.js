@@ -3,10 +3,11 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
+import { deletedomain } from '../Redux/action';
 
 import Paginations from './Component/Paginations';
 import Search from './Component/Search';
@@ -15,6 +16,8 @@ import './sec.css'
 
 export default function MainBody() {
         const history= useHistory();
+        const location =useLocation()
+        console.log(location)
         
         const [getdomaindata, setgetdomaindata] = useState([]);
         const [totalitems, settotalitems] = useState(0);
@@ -27,15 +30,18 @@ export default function MainBody() {
        });
        const headers=[
                 { name:"#" ,field:"id"  ,sortable:false },
-                { name:"Sub-Domain" ,field:"Sub-Domain"  ,sortable:false },
+                { name:"Sub-Domain" ,field:"Sub-Domain"  ,sortable:true },
                 { name:"IP-Address" ,field:"IP-Address" ,sortable:false },
                 { name:"Status Code" ,field:"Status Code"  ,sortable:false },
                 { name:"Last Update" ,field:"Last Update"  ,sortable:false },
 
         ]
-        
+        const dispatch = useDispatch();
         const PageHandle =()=>{
-                history.push("first")
+                dispatch(deletedomain());
+                history.push("/first");
+                
+
         }
        
         
@@ -66,7 +72,7 @@ export default function MainBody() {
                 {
                         const revsered= sorting.order ==="asc"? 1:-1;
                         commputecomments=commputecomments.sort((a,b)=>
-                        revsered* a[sorting.field].localeCompare(b[sorting.field]));
+                        revsered * a[sorting.field].localeCompare(b[sorting.field]));
                 }
                 if(commputecomments.length>0){  settotalitems(commputecomments.length)}
                 return commputecomments.slice(
