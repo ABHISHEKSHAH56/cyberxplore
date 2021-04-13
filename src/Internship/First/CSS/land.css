@@ -5,7 +5,7 @@
         flex-direction: row;
         justify-self: center;
         padding-top: 20px;
-        height: 575px;
+        min-height: 575px;
         justify-content: space-around;
         margin: auto;
         

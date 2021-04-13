@@ -7,12 +7,14 @@ import {getdomain} from '../Redux/action'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import UseLoder from '../Loader/UseLoder';
-import {Redirect} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+//do something...
+
 
 
 
 export default function LandPage() {
-            
+        let history = useHistory();
 
         const [loader ,showloder,hideloder]=UseLoder();
       
@@ -38,6 +40,8 @@ export default function LandPage() {
                 if(post.length >0)
                 {
                         hideloder();
+                        history.push("/sec");
+                        
                         
                             
 

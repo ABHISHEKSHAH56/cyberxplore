@@ -11,7 +11,7 @@ export default function Search({onSearch}) {
                 
                 <input type="text"
                 className="form-control"
-                style={{width:"200px",height:'40px'}}
+                style={{width:"200px",height:'40px',marginLeft:'10px'}}
                 value={search}
                 onChange={(e)=>{
                         onInputChange(e.target.value)

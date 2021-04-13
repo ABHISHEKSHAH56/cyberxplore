@@ -10,12 +10,9 @@ import Search from './Component/Search';
 import Tableheader from './Component/Tableheader';
 
 export default function MainBody() {
-        const {id}=useParams();
-        console.log(id)
-        const [getdomaindata, setgetdomaindata] = useState([]);
         
- const [loader ,showloder,hideloder]=UseLoder();
-       const [totalitems, settotalitems] = useState(0);
+        const [getdomaindata, setgetdomaindata] = useState([]);
+        const [totalitems, settotalitems] = useState(0);
        const [currentpage, setcurrentpage] = useState(1);
        const ITEMs_PER_PAGE=15;
        const [search, setsearch] = useState('');
@@ -31,16 +28,15 @@ export default function MainBody() {
                 { name:"Last Update" ,field:"Last Update"  ,sortable:true },
 
         ]
-        const ex=useSelector();
-        const [posts, setposts] = useState([])
         
+       
+        
+        const {post} = useSelector(state => state.data.college)
         useEffect(() => {
-                setposts(ex((state) => state.shop.college));
-                setgetdomaindata(posts);
-               
-               
-        }, []);
-        console.log(posts)
+                
+                setgetdomaindata(getdomaindata)
+        }, [post])
+        
         console.log(getdomaindata)
         const commentdata=useMemo(() =>{
                 let commputecomments =getdomaindata;
@@ -71,7 +67,7 @@ export default function MainBody() {
         } ,[getdomaindata,currentpage,search,sorting]);
         return (
                 
-                <div className="container" style={{marginTop:"35px"}}>
+                <div className="container" style={{marginTop:"45px", minHeight:'70vh'}}>
                         
                 <div className="header" style={{marginBottom:"30px" , fontWeight:"bold"}}>
                         <h1 className="text-center">Bust Domain </h1>
@@ -82,13 +78,14 @@ export default function MainBody() {
                                         <div className="col-md-6">
                                                 
                                         </div>
-                                        <div className="col-md-6 d-flex flex-row-reverse">
+                                        <div className="col-md-6 d-flex   flex-row justify-content-center">
+                                                <p style={{marginLeft:'3px !important '}}>Search</p>
                                                 <Search onSearch={(value)=>{
                                                         setsearch(value)
                                                         setcurrentpage(1)
                                                         
 
-                                                }} style={{margin:"25px"}}  />
+                                                }}   />
                                         </div>
                                 </div>
 
@@ -131,7 +128,7 @@ export default function MainBody() {
 
                         </div>
                 </div>
-                    {loader}   
+                    
                 </div>
         )
 }

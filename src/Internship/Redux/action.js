@@ -7,11 +7,11 @@ export const  getdomain =(domain)=>async (dispatch)=>{
         console.log(`${url}${domain}`)
         try {
                 const {data}=await axios.get(`${url}${domain}`);
-                console.log(data);
+                console.log(data["data"]);
      
                 dispatch({
                         type:'FETCH_ALL',
-                        payload: data
+                        payload: data["data"]
                 })
                 
         } catch (error) {
