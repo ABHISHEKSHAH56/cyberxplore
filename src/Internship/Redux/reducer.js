@@ -1,5 +1,7 @@
 const inital={
-        college:[]
+        college:[
+                
+        ]
 }
 
 

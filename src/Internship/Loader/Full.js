@@ -1,5 +1,5 @@
 import React from 'react';
-import spinner from '../Loader/1.gif'
+import spinner from '../Loader/yo.gif'
 import '../../index.css'
 
 export default function Full() {

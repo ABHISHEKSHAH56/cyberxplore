@@ -6,7 +6,7 @@ const url = 'https://subbuster.cyberxplore.com/api/find?domain=';
 export const  getdomain =(domain)=>async (dispatch)=>{
         console.log(`${url}${domain}`)
         try {
-                const {data}=await axios.get(`${url}${domain}`);
+                const {data}=await axios.get(`${url}${domain}/ll`);
                 console.log(data["data"]);
      
                 dispatch({
