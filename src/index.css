@@ -1,0 +1,16 @@
+.fp-container{
+        display: flex;
+        flex: row;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+}
+.fp-container .fp-loader{
+       
+        z-index: 1000;
+        height: 300px;
+        width: 300px;
+        
+
+}
