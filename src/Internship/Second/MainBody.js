@@ -30,10 +30,10 @@ export default function MainBody() {
        });
        const headers=[
                 { name:"#" ,field:"id"  ,sortable:false },
-                { name:"Sub-Domain" ,field:"Sub-Domain"  ,sortable:true },
-                { name:"IP-Address" ,field:"IP-Address" ,sortable:false },
-                { name:"Status Code" ,field:"Status Code"  ,sortable:false },
-                { name:"Last Update" ,field:"Last Update"  ,sortable:false },
+                { name:"Sub-Domain" ,field:"subdomain"  ,sortable:true },
+                { name:"IP-Address" ,field:"ip" ,sortable:true },
+                { name:"Status Code" ,field:"statuscode"  ,sortable:true},
+                { name:"Last Update" ,field:"updatedon"  ,sortable:true },
 
         ]
         const dispatch = useDispatch();
