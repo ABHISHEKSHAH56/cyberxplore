@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useMemo } from 'react';
 import { Pagination } from 'react-bootstrap'
+import { Button, Icon } from 'semantic-ui-react';
 
 export default function Paginations({total=0,itemsperpage=10,currentpage=1,onPageChange}) {
         
@@ -28,10 +29,21 @@ export default function Paginations({total=0,itemsperpage=10,currentpage=1,onPag
         if (totalPages===0) return null;
         return (
                 <Pagination>
-                        <Pagination.Prev  onClick={()=>onPageChange(currentpage-1)} disabled={currentpage===1}/>
+                      
+                        <Button style={{background:"red",width:"10px !important" }} icon labelPosition='left'onClick={()=>onPageChange(currentpage-1)} disabled={currentpage===1}>
+                                <Icon name='arrow left' />Back
+                              
+                                </Button>
+  
+                
                         {paginationsitems }
+
+                        <Button style={{background:"green" ,width:"20px",margin:"2px"}} icon labelPosition='right'onClick={()=>onPageChange(currentpage+1)} disabled={currentpage===totalPages}>
+                                <Icon name='arrow right' />
+                                Next
+                                </Button>
+  
                         
-                        <Pagination.Next onClick={()=>onPageChange(currentpage+1)} disabled={currentpage===totalPages}/>
-                </Pagination>
+                         </Pagination>
         )
 }

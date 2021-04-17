@@ -4,14 +4,14 @@ const url = 'https://subbuster.cyberxplore.com/api/find?domain=';
 
 //
 export const  getdomain =(domain)=>async (dispatch)=>{
-        console.log(`${url}${domain}`)
+      
         try {
-                const {data}=await axios.get(`${url}${domain}/ll`);
-                console.log(data["data"]);
+                const {data}=await axios.get(`${url}${domain}`);
+                
      
                 dispatch({
                         type:'FETCH_ALL',
-                        payload: data["data"]
+                        payload: data
                 })
                 
         } catch (error) {
@@ -27,6 +27,23 @@ export const  deletedomain =()=>async (dispatch)=>{
      
                 dispatch({
                         type:'DELETE_ALL',
+                        
+                })
+                
+        } catch (error) {
+                console.log(error.message)
+                
+        }
+}
+
+
+export const  getlastdomain =()=>async (dispatch)=>{
+        
+        try {
+                
+     
+                dispatch({
+                        type:'GET_LAST',
                         
                 })
                 

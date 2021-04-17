@@ -8,17 +8,12 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import UseLoder from '../Loader/UseLoder';
 import { useHistory } from "react-router-dom";
-//do something...
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
 
 
 
 export default function LandPage() {
         let history = useHistory();
-        const location =useLocation()
-        console.log(location)
+       
 
         const [loader ,showloder,hideloder]=UseLoder();
       
@@ -29,7 +24,7 @@ export default function LandPage() {
         const dispatch=useDispatch();
         const clickhandler= (e)=>{
                 e.preventDefault();
-                console.log(domain.domainvalu);
+               
                 dispatch(getdomain(domain.domainvalu));
                 setdomain({
                         domainvalu:''
@@ -38,20 +33,20 @@ export default function LandPage() {
 
         }
 
-        const post = useSelector(state => state.data.college)
-        console.log(post);
+        const post = useSelector(state => state.data.archived)        
+        const ram=post[0];
+        console.log(ram)
+
+
+        
         useEffect(() => {
                 if(post.length >0)
                 {
                         hideloder();
                         history.push("/sec");
                         
-                       
-                        
-                       
-                            
-
                 }
+                
                
                 
         }, [post])
